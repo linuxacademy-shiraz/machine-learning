@@ -1,0 +1,25 @@
+{
+    "Version": "20161211",
+    "Statement": [{
+        "Sid": "AmazonML_s3:ListBucket",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "machinelearning.amazonaws.com"
+        },
+        "Action": "s3:ListBucket",
+        "Resource": "arn:aws:s3:::linux-academy-ml-demo1",
+        "Condition": {
+            "StringLike": {
+                "s3:prefix": "salary*"
+            }
+        }
+    }, {
+        "Sid": "AmazonML_s3:GetObject",
+        "Effect": "Allow",
+        "Principal": {
+            "Service": "machinelearning.amazonaws.com"
+        },
+        "Action": "s3:GetObject",
+        "Resource": "arn:aws:s3:::linux-academy-ml-demo1/salary*"
+    }]
+}
